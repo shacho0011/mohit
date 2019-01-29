@@ -1,4 +1,4 @@
-var options = {
+module.exports = {
   development: {
       client: 'pg',
       connection: {
@@ -25,7 +25,3 @@ var options = {
         },
     },
 };
-
-var environment = process.env.DATABASE_URL || 'development';
-var config = options[environment];
-module.exports = config;
