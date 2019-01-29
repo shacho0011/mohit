@@ -3,14 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 const userQuery = require('../../db/userQuery');
-
-var validateUser = function(user){
-  var hasName = typeof user.name == 'string' && user.name.trim() != '';
-  var hasEmail = typeof user.email == 'string' && user.email.trim() != '';
-  var hasPassword = typeof user.password == 'string' && user.password.trim() != '';
-
-  return hasName && hasEmail && hasPassword;
-};
+const validateUser = require('../../util/util');
 
 router.post('/register/user', (req, res) => {
   // TODO: you need to store the data using database!
