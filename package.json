@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "An app for practicing implementing the web application",
   "main": "index.js",
-  "repository": "https://github.com/maaaashin324/practice-app.git",
-  "author": "maaaashin324 <masataka.shintoku@gmail.com>",
+  "repository": "https://github.com/shacho0011/mohit.git",
+  "author": "maaaashin324 <masataka.shintoku@gmail.com>, shacho0011 https://github.com/shacho0011/mohit.git",
   "license": "MIT",
   "private": false,
   "scripts": {
