@@ -5,7 +5,7 @@ const router = express.Router();
 const userQuery = require('../../db/userQuery');
 const validateUser = require('../../util/util');
 
-router.post('/register/user', (req, res) => {
+router.post('/register', (req, res) => {
   // TODO: you need to store the data using database!
   if(validateUser(req.body)){
     var users = userQuery.users.createUser(req.body);
@@ -23,7 +23,7 @@ router.post('/register/user', (req, res) => {
 router.get('/', (req, res) => {
   var users = userQuery.users.getAllUser();
   users.then(users =>{
-    res.status(200).json({users:users,status:'success'});
+    res.status(200).json(users);
   });
   // TODO: you need to get the data using database!
   // TODO: you need to send the response using express!
