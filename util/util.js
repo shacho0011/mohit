@@ -7,5 +7,14 @@ validateUser = user =>{
     return hasName && hasEmail && hasPassword;
 }
 
+validateUserLogin = user =>{
 
-module.exports = validateUser;
+    var hasEmail = typeof user.email == 'string' && user.email.trim() != '';
+    var hasPassword = typeof user.password == 'string' && user.password.trim() != '';
+  
+    return hasEmail && hasPassword;
+}
+
+
+module.exports.validateUser = validateUser;
+module.exports.validateUserLogin = validateUserLogin;
