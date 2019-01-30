@@ -8,20 +8,10 @@ module.exports = {
         database : 'practice'
       },
       migrations: {
-          directory: __dirname + '/config/migrations',
+          directory: __dirname + '/db/migrations',
         },
       seeds: {
-          directory: __dirname + '/config/seeds',
+          directory: __dirname + '/db/seeds',
         },
-    },
-  production: {
-      client: 'pg',
-      connection: process.env.DATABASE_URL,
-      migrations: {
-          directory: __dirname + '/config/migrations',
-        },
-      seeds: {
-          directory: __dirname + '/config/seeds/production',
-        },
-    },
+    }
 };

@@ -1,5 +1,5 @@
 
-const knex = require('../config/knex');
+const knex = require('../middleware/knex');
 
 module.exports = {
     users:{
