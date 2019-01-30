@@ -1,19 +1,36 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Home from './components/home'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+
+import Login from './components/login';
+import Register from './components/register';
+import Users from './components/users';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-        </header>
-        <div>
-          <Home />
+      <Router>
+        <div className="App">
+          <header className="App-header">
+            <img src={logo} className="App-logo" alt="logo" />
+          </header>
+          <Route exact path="/" component={Login} />
+          <div className="container">
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/register" component={Register} />
+            <Route exact path="/users" component={Users} />
+          </div>
         </div>
-      </div>
+      </Router>
+      // <div className="App">
+      //   <header className="App-header">
+      //     <img src={logo} className="App-logo" alt="logo" />
+      //   </header>
+      //   <div>
+      //     <Login />
+      //   </div>
+      // </div>
     );
   }
 }
