@@ -14,6 +14,11 @@ class App extends Component {
         <div className="App">
           <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
+            <ul>
+              <li><a href="/">Login</a></li>
+              <li><a href="/register">Register</a></li>
+              <li><a href="/users">Users</a></li>
+            </ul>
           </header>
           <Route exact path="/" component={Login} />
           <div className="container">
