@@ -6,6 +6,8 @@ const userQuery = require('../../db/userQuery');
 const {validateUser} = require('../../util/util');
 const {validateUserLogin} = require('../../util/util');
 
+const jwtGenerator = require('../../util/jwtGenerator');
+
 router.post('/register', (req, res) => {
   // TODO: you need to store the data using database!
   if(validateUser(req.body)){
@@ -26,9 +28,11 @@ router.post('/login', (req, res) => {
   if(validateUserLogin(req.body)){
     var user = userQuery.users.getUserByEmail(req.body.email);
     user.then(user => {
-      console.log("User Info...", user[0]);
+      
       if(user[0].password == req.body.password){
-        console.log("Yaahhhhh! Loged In...");
+        var token = jwtGenerator(user[0]);
+       res.setHeader('token', token);
+       console.log(token);
         return res.status(200).json(user[0]);
       }else{
         return res.status(400).json({status:'Password is not good!'});
