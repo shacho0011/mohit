@@ -14,7 +14,7 @@ router.post('/register', (req, res) => {
   if(validateUser(req.body)){
     var users = userQuery.users.createUser(req.body);
     users.then(users => {
-      return res.status(200).json({user:users[0],status:'success'});
+      return res.status(200).json({user:users[0]});
     });
     
   }else{
