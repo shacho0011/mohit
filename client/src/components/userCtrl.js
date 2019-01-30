@@ -25,7 +25,7 @@ export const login = user => {
             password: user.password
         })
         .then(res => {
-            //localStorage.setItem('usertoken', res.data)
+            localStorage.setItem('token', res.headers.token)
             return res;
         })
         .catch(err => {
@@ -33,13 +33,16 @@ export const login = user => {
         })
 }
 
-export const getUsers = () => axios
-    .get('/users')
-    .then(res => {
-        //console.log(res.data);
-        return res.data;
-    })
-    .catch(err => {
-        console.log(err);
-    })
+export const getUsers = token => {
+    //console.log(token);
+    axios.defaults.headers['Authorization'] = token;
+    return axios 
+        .get('/users')
+        .then(res => {
+            return res.data;
+        })
+        .catch(err => {
+            console.log(err);
+        })
+}
 

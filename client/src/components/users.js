@@ -12,7 +12,8 @@ class Users extends Component {
   }
 
   componentDidMount() {
-    var promise = getUsers();
+    const token = "Bearer " + localStorage.token;
+    var promise = getUsers(token);
     promise.then(users => {
       this.setState({users:users});
       console.log(this.state.users);
